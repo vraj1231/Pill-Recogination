@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleloginsignup.css">
+    <title>Document</title>
+    <script>
+        function openPage(pageName, elmnt, color) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].style.backgroundColor = "";
+            }
+            document.getElementById(pageName).style.display = "block";
+            elmnt.style.backgroundColor = color;
+        }
+
+        // always open with default
+        document.getElementById("default").click();
+    </script>
+    <!-- 
+    <p class="p1"> WELLNESS SUPPORT CENTER</p> -->
+</head>
+
+<body>
+
+    <div class="bg-image"></div>
+    <div class="bg-title">
+        <h1 class="p2"> WELLNESS SUPPORT CENTER</h1>
+    </div>
+    <div class="bg-text">
+        <p class="p1">Welcome Back</p>
+        <P>To keep Connected with us please login with your personal info</P>
+        <button class="tab-link" onclick="openPage('Login', this, 'deepskyblue')" id="default">Login</button>
+        <button class="tab-link" onclick="openPage('SignUp', this, 'mediumseagreen')">Sign Up</button>
+
+
+        <div id="Login" class="tab-content">
+            <form method="POST">
+
+
+                <label for="email"><b>Username</b></label>
+                <input type="text" placeholder="Enter your full Email*" name="email" required "">
+
+
+
+                <label for="pswd"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password*" name="pass" required "">
+            </form>
+
+            <a id="forgot-password" href="#" style="color:red">Forgot password?</a>
+
+            <div class="clearfix">
+                <button type="submit">Sign In</button>
+            </div>
+        </div>
+
+        <div id="SignUp" class="tab-content">
+            <h1>Create an account.</h1>
+            <form action="{{url_for('signup')}}" method="POST">
+
+                <label for="firstname"><b>First Name</b></label>
+                <input type="text" placeholder="First Name*" name="firstname" required "">
+
+
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Enter Email*" name="mail" required "">
+
+
+                <label for="pswd"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password*" name="pass" required "">
+
+                <p>By creating an account you agree to our <a href="#" style="color:red">Terms & Privacy</a>.</p>
+
+
+                <div class="clearfix">
+                    <button type="button" class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Create Account</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
